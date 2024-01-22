@@ -1,10 +1,30 @@
-// app.js
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
+import { auth } from "./firebase.js";
 
-// Importar el módulo de autenticación de Firebase
-const auth = firebase.auth();
+//function loginUser(){
 
-// Función para iniciar sesión
-function loginUser() {
+const loginForm = document.querySelector("#formLogin");
+
+loginForm.addEventListener("submit", async(e) => {
+    e.preventDefault();
+
+    const email = loginForm["correo"].value;
+    const password = loginForm["contrasena"].value;
+
+    console.log(`Correo: ${email}, Contraseña: ${password}`);
+
+    try{
+        const userCredentials = await signInWithEmailAndPassword(auth, email, password);
+        console.log("Bienvenido "+ userCredentials.user.email);
+    }
+    catch(error){
+        console.log(error);
+        if(error.code === 'auth/invalid-login-credentials'){
+          console.log('DATOS INCORRECTOOOOS toco soportar :v');
+        }
+    }
+})
+/*
   var email = document.getElementById("correo").value;
   var password = document.getElementById("contrasena").value;
 
@@ -17,7 +37,7 @@ function loginUser() {
     .catch((error) => {
       console.error("Error al iniciar sesión", error.message);
     });
-}
+//}
 
 // Función para cerrar sesión
 function logoutUser() {
@@ -33,5 +53,7 @@ function logoutUser() {
       console.error("Error al cerrar sesión", error.message);
       // Puedes mostrar un mensaje de error al usuario aquí
     });
-}
+}*/
+
+
 

@@ -8,25 +8,29 @@
 </head>
 <body>
     <div class="register-container">
-        <form class="register-form" onsubmit="registerUser(); return false;">
+        <form id="formRegistro" name="formRegistro"  class="register-form" >
             <h1>REGISTRARSE</h1>
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="button" onclick="registerUser()">Registrarse</button>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="correo-registro">Correo electrónico:</label>
+            <input type="email" id="correo-registro" name="correo-registro" required>
+            <label for="contrasena-registro">Contraseña:</label>
+            <input type="contrasena" id="contrasena-registro" name="contrasena-registro" required>
+            <button type="submit">Registrarse</button>
         </form>
-        <button class="close-button" onclick="closeRegister()">Cerrar</button>
+        <button class="close-button" onclick="closeRegister()">Volver al inicio de sesión</button>
     </div>
 
     <script>
         function closeRegister() {
             // Puedes agregar aquí el código para cerrar la página de registro
-            alert('Cerrar registro');
             // Ejemplo: redirigir a la página principal
             window.location.href = "/";
         }
+
     </script>
+    <script src="/js/registro.js" type="module"></script>
+
 
 </body>
 </html>
