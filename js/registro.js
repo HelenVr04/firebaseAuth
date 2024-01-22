@@ -21,7 +21,7 @@ registroForm.addEventListener("submit", async(e) => {
         if(error.code === 'auth/email-already-in-use'){
           console.log('Coreo ya existe');
         }else if(error.code === 'auth/invalide-email'){
-            console.log('Coreo invalido');
+            console.log('Correo invalido');
         }else if(error.code === 'auth/weak-password'){
             console.log('Contraseña no valida');
         }
