@@ -19,11 +19,18 @@ registroForm.addEventListener("submit", async(e) => {
     catch(error){
         //console.log(error);
         if(error.code === 'auth/email-already-in-use'){
-          console.log('Coreo ya existe');
-        }else if(error.code === 'auth/invalide-email'){
+          console.log('Correo ya existe');
+        }else if(error.code === 'auth/invalid-email'){
             console.log('Correo invalido');
         }else if(error.code === 'auth/weak-password'){
             console.log('Contraseña no valida');
         }
     }
 })
+
+document.addEventListener('DOMContentLoaded', function () {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'true') {
+        window.location.href = 'principal.html';
+    }
+});
